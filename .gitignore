@@ -1,3 +1,6 @@
 node_modules
 .env
 .env.*
+.github/*
+.firebase/
+*-debug.log
