@@ -1,0 +1,14 @@
+{
+  "name": "react-native-fire-ai",
+  "version": "0.1.0",
+  "description": "Repository for all the fired-up-ai apps and packages",
+  "main": "index.js",
+  "repository": "https://github.com/fired-up-ai/react-native-fire-ai.git",
+  "author": "sukrut sathaye <sukrutssathaye@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
+}
