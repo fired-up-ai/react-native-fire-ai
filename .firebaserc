@@ -1,5 +1,16 @@
 {
   "projects": {
     "default": "fired-up-ai"
-  }
+  },
+  "targets": {
+    "fired-up-ai": {
+      "hosting": {
+        "coal": [
+          "/apps/coal/dist"
+        ]
+      }
+    }
+  },
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
