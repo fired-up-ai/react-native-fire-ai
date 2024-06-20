@@ -4,4 +4,4 @@ node_modules
 .github/*
 .firebase/
 *-debug.log
-yarn.lock
+yarn*
