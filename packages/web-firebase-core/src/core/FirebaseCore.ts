@@ -56,6 +56,13 @@ export default class FirebaseCore {
         };
         
         const app = initializeApp(config);
+        const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
+        const auth = firebaseAuth.initializeAuth(app,
+            {
+                persistence: reactNativePersistence(AsyncStorage),
+                // Additional settings
+            }
+        )
         this.firebase = {
             app,
             auth: getAuth(app),
