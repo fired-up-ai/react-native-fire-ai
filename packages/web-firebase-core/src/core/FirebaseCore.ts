@@ -33,7 +33,7 @@ export interface FirebaseConfig {
 
 export interface Firebase {
     app: FirebaseApp;
-    auth: Auth;
+    auth: firebaseAuth.Auth;
     firestore: Firestore;
     storage: FirebaseStorage;
     functions: Functions;
@@ -69,7 +69,7 @@ export default class FirebaseCore {
             if (typeof process.env.EMULATOR_HOST !== 'string') {
                 throw new Error('EMULATOR_HOST is not set');
             }
-            connectAuthEmulator(
+            firebaseAuth.connectAuthEmulator(
                 this.firebase.auth, 
                 `http://${process.env.EMULATOR_HOST}:${portConfig.emulators.auth.port}`
             );
