@@ -64,28 +64,28 @@ export default class FirebaseCore {
             functions: getFunctions(app),
         };
         console.log("Use Emulators?: ", process.env.USE_FIREBASE_EMULATOR)
-        if (process.env.USE_FIREBASE_EMULATOR === "true") {
+        if (process.env.EXPO_PUBLIC_USE_FIREBASE_EMULATOR === "true") {
             console.log("Using Firebase Emulators...");
-            if (typeof process.env.EMULATOR_HOST !== 'string') {
+            if (typeof process.env.EXPO_PUBLIC_EMULATOR_HOST !== 'string') {
                 throw new Error('EMULATOR_HOST is not set');
             }
             firebaseAuth.connectAuthEmulator(
                 this.firebase.auth, 
-                `http://${process.env.EMULATOR_HOST}:${portConfig.emulators.auth.port}`
+                `http://${process.env.EXPO_PUBLIC_EMULATOR_HOST}:${portConfig.emulators.auth.port}`
             );
             connectFirestoreEmulator(
                 this.firebase.firestore, 
-                process.env.EMULATOR_HOST, 
+                process.env.EXPO_PUBLIC_EMULATOR_HOST, 
                 portConfig.emulators.firestore.port
             );
             connectStorageEmulator(
                 this.firebase.storage, 
-                process.env.EMULATOR_HOST, 
+                process.env.EXPO_PUBLIC_EMULATOR_HOST, 
                 portConfig.emulators.storage.port
             );
             connectFunctionsEmulator(
                 this.firebase.functions, 
-                process.env.EMULATOR_HOST, 
+                process.env.EXPO_PUBLIC_EMULATOR_HOST, 
                 portConfig.emulators.functions.port
             );
 
