@@ -65,7 +65,7 @@ export default class FirebaseCore {
         )
         this.firebase = {
             app,
-            auth: getAuth(app),
+            auth: auth,
             firestore: getFirestore(app),
             storage: getStorage(app),
             functions: getFunctions(app),
