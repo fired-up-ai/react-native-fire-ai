@@ -50,19 +50,19 @@ const SignInComponent: React.FC<SignInComponentProps> = ({ mode }) => {
       try {
         let userCredentials: UserCredential;
         if (mode === 'login') {
-            userCredentials = await authService.signInWithEmail(email, password);
+          userCredentials = await authService.signInWithEmail(email, password);
         } else {
-            userCredentials = await authService.signUpWithEmail(email, password);
+          userCredentials = await authService.signUpWithEmail(email, password);
         }
         // Handle successful login/signup (e.g., navigate to home screen)
         if (!userCredentials) {
-            throw new Error('User credentials not found');
+          throw new Error('User credentials not found');
         }
         const user = userCredentials.user;
-        const idToken = await user.getIdToken();
+        const idToken = await authService.getUserToken();
 
-        dispatch(setUser(user));
-        dispatch(setIdToken(idToken));
+        dispatch(setUser(JSON.parse(JSON.stringify(user))));
+        dispatch(setIdToken(idToken!));
       } catch (error) {
         console.error('Authentication error:', error);
         // Handle error (e.g., show error message to user)
@@ -73,13 +73,13 @@ const SignInComponent: React.FC<SignInComponentProps> = ({ mode }) => {
   const handleGoogleSignIn = async () => {
     try {
       let userCredentials = await authService.signInWithGoogle();
-        if (!userCredentials) {
-          throw new Error('User credentials not found');
-        }
-        const user = userCredentials.user;
-        const idToken = await authService.getUserToken();
-        dispatch(setUser(user));
-        dispatch(setIdToken(idToken!));
+      if (!userCredentials) {
+        throw new Error('User credentials not found');
+      }
+      const user = userCredentials.user;
+      const idToken = await authService.getUserToken();
+      dispatch(setUser(JSON.parse(JSON.stringify(user))));
+      dispatch(setIdToken(idToken!));
 
     } catch (error) {
       console.error('Google sign-in error:', error);
@@ -89,14 +89,14 @@ const SignInComponent: React.FC<SignInComponentProps> = ({ mode }) => {
 
   const handleGithubSignIn = async () => {
     try {
-        let userCredentials = await authService.signInWithGithub();
-        if (!userCredentials) {
-            throw new Error('User credentials not found');
-        }
-        const user = userCredentials.user;
-        const idToken = await authService.getUserToken();
-        dispatch(setUser(user));
-        dispatch(setIdToken(idToken!));
+      let userCredentials = await authService.signInWithGithub();
+      if (!userCredentials) {
+        throw new Error('User credentials not found');
+      }
+      const user = userCredentials.user;
+      const idToken = await authService.getUserToken();
+      dispatch(setUser(JSON.parse(JSON.stringify(user))));
+      dispatch(setIdToken(idToken!));
     } catch (error) {
       console.error('GitHub sign-in error:', error);
       // Handle error
