@@ -18,6 +18,7 @@ import {
     connectFunctionsEmulator
 } from 'firebase/functions';
 import portConfig from '../../../../firebase.json';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export interface FirebaseConfig {
