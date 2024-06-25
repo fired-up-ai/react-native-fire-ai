@@ -1,8 +1,22 @@
 import { FirebaseApp, initializeApp } from 'firebase/app';
-import { getAuth, Auth, connectAuthEmulator } from 'firebase/auth';
-import { getFirestore, Firestore, connectFirestoreEmulator } from 'firebase/firestore';
-import { getStorage, FirebaseStorage, connectStorageEmulator } from 'firebase/storage';
-import { getFunctions, Functions, connectFunctionsEmulator } from 'firebase/functions';
+
+import * as firebaseAuth from 'firebase/auth';
+
+import { 
+    getFirestore, 
+    Firestore, 
+    connectFirestoreEmulator 
+} from 'firebase/firestore';
+import { 
+    getStorage, 
+    FirebaseStorage, 
+    connectStorageEmulator 
+} from 'firebase/storage';
+import { 
+    getFunctions, 
+    Functions, 
+    connectFunctionsEmulator
+} from 'firebase/functions';
 import portConfig from '../../../../firebase.json';
 
 
