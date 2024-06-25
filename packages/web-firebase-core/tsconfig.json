@@ -9,8 +9,12 @@
       "skipLibCheck": true,
       "forceConsistentCasingInFileNames": true,
       "outDir": "./dist",
-      "rootDir": "./src"
+      "rootDir": "./src",
+      "paths": {
+        "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"]
+      }
     },
+    "extends": "expo/tsconfig.base",
     "include": ["src/**/*", "firebase.json"],
     "exclude": ["node_modules", "dist"]
   }
